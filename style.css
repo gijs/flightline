@@ -1,0 +1,75 @@
+header {
+	color: #fff;
+	background-color: #55acee;
+	margin-bottom: 30px;
+}
+
+header a {
+	color: #fff !important;
+	display: block;
+	float: left;
+	padding: 10px;
+	margin-right: 10px;
+	text-decoration: none;
+}
+
+header a:hover {
+	background: #fff;
+	color: #55acee !important;
+	text-decoration: none;
+}
+
+header nav {
+	margin-left: 15px;
+}
+
+.tweet-input {
+	margin-bottom: 15px;
+}
+
+.tweet-submit {
+	float: right;
+}
+
+.tweet-list {
+	list-style: none;
+	border: 1px solid #ddd;
+	padding: 0 0 40px 0;
+	border-radius: 5px;
+}
+
+.tweet-list > h4 {
+	padding: 12px;
+	margin: 0px;
+	border-bottom: 1px solid #ddd;
+}
+
+.tweet {
+	padding: 9px 12px;
+	border-bottom: 1px solid #ddd;
+}
+
+.tweet {
+	position: relative;
+}
+
+.tweet:hover {
+	background-color: #f5f5f5;
+}
+
+.tweet-user {
+	margin-bottom: 5px;
+}
+
+.user-username {
+	color: #999;
+	margin-left: 10px;
+}
+
+.tweet-time {
+	position: absolute;
+	right: 12px;
+	top: 12px;
+	font-size: 11px;
+	color: #999;
+}
