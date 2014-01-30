@@ -36,7 +36,7 @@ var TweetForm = React.createClass({
 		return {text: ''}
 	},
 
-	onChange: function (e) {
+	onInput: function (e) {
 		this.setState({text: e.target.value})
 	},
 
@@ -57,7 +57,7 @@ var TweetForm = React.createClass({
 
 	render: function () {
 		return <form onSubmit={this.onSubmit} className='col-lg-3'>
-			<textarea className='form-control tweet-input' onChange={this.onChange} value={this.state.text} placeholder='Compose new Tweet...'></textarea>
+			<textarea className='form-control tweet-input' onInput={this.onInput} value={this.state.text} placeholder='Compose new Tweet...'></textarea>
 			<input className='btn btn-primary tweet-submit' type='submit' value='Tweet' />
 		</form>;
 	}
