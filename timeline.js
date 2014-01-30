@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var data = [
+var sampleTweets = [
 	{text:'More random tweet ' + Math.random(), date: new Date(), user:'pveyes', name:'Fatih Kalifa'},
 	{text:'Some random tweet', date: new Date(), user:'pveyes', name:'Fatih Kalifa'},
 ]
@@ -20,7 +20,7 @@ var Tweet = React.createClass({
 
 var TweetList = React.createClass({
 	render: function () {
-		var tweetNodes = this.props.data.map(function (tweet) {
+		var tweetNodes = this.props.tweets.map(function (tweet) {
 			return <Tweet text={tweet.text} date={tweet.date} user={tweet.user} name={tweet.name} />;
 		});
 
@@ -43,16 +43,19 @@ var TweetForm = React.createClass({
 	onSubmit: function (e) {
 		e.preventDefault();
 
-		this.props.onTweetSubmit({
-			text: this.state.text,
-			date: new Date(),
-			user: 'pveyes',
-			name: 'Fatih Kalifa'
-		});
-
-		this.setState({text: ''});
-
-		console.log(this.state.text);
+		if (this.state.text == null || this.state.text == '') {
+			return false;
+		}
+		else {
+			this.props.onTweetSubmit({
+				text: this.state.text,
+				date: new Date(),
+				user: 'pveyes',
+				name: 'Fatih Kalifa'
+			});
+			
+			this.setState({text: ''});
+		}
 	},
 
 	render: function () {
@@ -66,26 +69,23 @@ var TweetForm = React.createClass({
 var Timeline = React.createClass({
 
 	getInitialState: function () {
-		return {data: this.props.data};
+		return {tweets: this.props.tweets};
 	},
 
 	handleTweetSubmit: function (tweet) {
-
 		// push to stack
-		var tweets = this.state.data;
+		var tweets = this.state.tweets;
 		tweets.unshift(tweet);
 
-		console.log(tweets);
-
-		this.setState({data: tweets});
+		this.setState({tweets: tweets});
 	},
 
 	render: function () {
 		return <div className='container'>
 			<TweetForm onTweetSubmit={this.handleTweetSubmit} />
-			<TweetList data={this.state.data} />
+			<TweetList tweets={this.state.tweets} />
 		</div>;
 	}
 });
 
-React.renderComponent(<Timeline data={data} />, document.querySelector('timeline'));
+React.renderComponent(<Timeline tweets={sampleTweets} />, document.querySelector('timeline'));
