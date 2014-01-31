@@ -1,18 +1,35 @@
 /** @jsx React.DOM */
 
 var sampleTweets = [
-	{text:'More random tweet ' + Math.random(), date: new Date(), user:'pveyes', name:'Fatih Kalifa'},
-	{text:'Some random tweet', date: new Date(), user:'pveyes', name:'Fatih Kalifa'},
+	{text:'My first time learning React http://pvey.es/blog/first-time-learning-react/ by @pveyes', date: new Date(), user:'pveyes', name:'Fatih Kalifa'},
 ]
+
+var usernameParser = function(text) {
+	// ref: http://stackoverflow.com/questions/5973187/parsing-twitter-name-with-regex-and-javascript
+	return text.replace(
+	/\B@([\w-]+)/gm,
+	'<a href="http://twitter.com/$1">@$1</a>'
+	)
+}
+
+var urlParser = function(text) {
+	// ref: http://stackoverflow.com/questions/19625183/js-find-urls-in-text-make-links
+	return text.replace(
+    /((http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?)/g,
+    '<a href="$1">$1</a>'
+	);
+}
 
 var Tweet = React.createClass({
 	render: function () {
+		var tweet = urlParser(this.props.text);
+		tweet = usernameParser(tweet);
 		return <li className='tweet'>
 			<div className='tweet-user'>
 				<strong className='user-full-name'>{this.props.name}</strong>
 				<span className='user-username'>@{this.props.user}</span>
 			</div>
-			<div className='tweet-text'>{this.props.text}</div>
+			<div className='tweet-text' dangerouslySetInnerHTML={{__html: tweet}} />
 			<div className='tweet-time'>{this.props.date.toTimeString()}</div>
 		</li>
 	}
