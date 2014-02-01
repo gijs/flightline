@@ -1,8 +1,15 @@
 /** @jsx React.DOM */
 
 var sampleTweets = [
-	{text:'My first time learning React http://pvey.es/blog/first-time-learning-react/ by @pveyes', date: new Date(), user:'pveyes', name:'Fatih Kalifa'},
+	{text: 'My first time learning #ReactJS http://pvey.es/blog/first-time-learning-react/ by @pveyes', date: new Date(), user:'pveyes', name:'Fatih Kalifa'},
 ]
+
+var hashtagParser = function(text) {
+	return text.replace(
+	/\B#([\w-]+)/gm,
+	'<a href="https://twitter.com/search?q=%23$1&src=hash">#$1</a>'
+	)
+}
 
 var usernameParser = function(text) {
 	// ref: http://stackoverflow.com/questions/5973187/parsing-twitter-name-with-regex-and-javascript
@@ -24,6 +31,7 @@ var Tweet = React.createClass({
 	render: function () {
 		var tweet = urlParser(this.props.text);
 		tweet = usernameParser(tweet);
+		tweet = hashtagParser(tweet);
 		return <li className='tweet'>
 			<div className='tweet-user'>
 				<strong className='user-full-name'>{this.props.name}</strong>
