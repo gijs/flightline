@@ -2,36 +2,11 @@
 
 var sampleTweets = [
 	{text: 'My first time learning #ReactJS http://pvey.es/blog/first-time-learning-react/ by @pveyes', date: new Date(), user:'pveyes', name:'Fatih Kalifa'},
-]
-
-var hashtagParser = function(text) {
-	return text.replace(
-	/\B#([\w-]+)/gm,
-	'<a href="https://twitter.com/search?q=%23$1&src=hash">#$1</a>'
-	)
-}
-
-var usernameParser = function(text) {
-	// ref: http://stackoverflow.com/questions/5973187/parsing-twitter-name-with-regex-and-javascript
-	return text.replace(
-	/\B@([\w-]+)/gm,
-	'<a href="http://twitter.com/$1">@$1</a>'
-	)
-}
-
-var urlParser = function(text) {
-	// ref: http://stackoverflow.com/questions/19625183/js-find-urls-in-text-make-links
-	return text.replace(
-    /((http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?)/g,
-    '<a href="$1">$1</a>'
-	);
-}
+];
 
 var Tweet = React.createClass({
 	render: function () {
-		var tweet = urlParser(this.props.text);
-		tweet = usernameParser(tweet);
-		tweet = hashtagParser(tweet);
+		var tweet = FormatTweet.parse(this.props.text);
 		return <li className='tweet'>
 			<div className='tweet-user'>
 				<strong className='user-full-name'>{this.props.name}</strong>
@@ -61,8 +36,21 @@ var TweetForm = React.createClass({
 		return {text: ''}
 	},
 
+	onFocus: function (e) {
+		if (this.state.text == '') {
+			e.target.innerHTML = '';
+		}
+	},
+
+	onBlur: function (e) {
+		console.log(this.state.text);
+		if (this.state.text == '') {
+			e.target.innerHTML = 'Compose new Tweet...';
+		}
+	},
+
 	onInput: function (e) {
-		this.setState({text: e.target.value})
+		this.setState({text: e.target.innerHTML})
 	},
 
 	onSubmit: function (e) {
@@ -85,7 +73,12 @@ var TweetForm = React.createClass({
 
 	render: function () {
 		return <form onSubmit={this.onSubmit} className='col-lg-3'>
-			<textarea className='form-control tweet-input' onInput={this.onInput} value={this.state.text} placeholder='Compose new Tweet...'></textarea>
+			<div contentEditable='true'
+				className='form-control tweet-input'
+				onFocus={this.onFocus}
+				onBlur={this.onBlur}
+				onInput={this.onInput}
+				value={this.state.text}>Compose new Tweet...</div>
 			<input className='btn btn-primary tweet-submit' type='submit' value='Tweet' />
 		</form>;
 	}
