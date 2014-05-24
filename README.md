@@ -1,15 +1,13 @@
-## React Timeline
+## Flightline
 
-> Simple twitter timeline simulation using ReactJS
+> Twitter's timeline implementation using FlightJS
 
-Inspired by [Passy's React Pokemon](https://github.com/passy/react-pokemon), I decided to learn [React](http://facebook.github.io/react/) and create simple app myself. 
-
-React timeline is a simple implementation of twitter timeline. It's more like all those ToDo apps sample really, but with different view :p
+Previously react-timeline (Twitter's timeline implementation using ReactJS), but I think it's better to use Twitter's JS Framework: FlightJS.
 
 ## Demo
 
-http://pveyes.github.io/react-timeline/
+http://pveyes.github.io/flightline/
 
 ## License
 
-BSD
+MIT
