@@ -1,26 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title> React Timeline - Example twitter timeline in ReactJS</title>
-		<link rel='stylesheet' type='text/css' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css' />
-		<link rel='stylesheet' type='text/css' href='./style.css' />		
-	<body>
-
-		<header>
-			<div class="container">
-				<nav>
-					<a href="#">Dummy Nav 1</a>
-					<a href="#">Dummy Nav 2</a>
-				</nav>
-			</div>
-		</header>
-		
-		<timeline></timeline>
-
-		<script src='http://fb.me/react-0.8.0.js'></script>
-		<script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
-		<script type='text/jsx' src='./tweet-formater.js'></script>
-		<script type='text/jsx' src='./timeline.js'></script>
-
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Flightline - Twitter's timeline implementation using FlightJS</title>
+    <meta name="description" content="Flightline, twitter's timeline implementation using FlightJS">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/bower_components/components-bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/components-bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="global-nav"></nav>
+    </header>
+    <div class="container app-content">
+      <div class="profile">
+        <div class="profile-header"></div>
+        <div class="profile-content"></div>
+        <div id="new-tweet">
+            <input id="tweet-input">
+            <button class="submit">Tweet</button>
+        </div>
+      </div>
+      <section class="timeline">
+        <header class="section-header">
+          <div class="header-inner">
+            <h2 class="section-heading">Tweets</h2>
+          </div>
+        </header>
+        <ul class="tweet-list" id="timeline"></ul>
+      </section>
+    </div>
+    <!--[if lt IE 9]>
+    <script src="/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="/bower_components/es5-shim/es5-sham.js"></script>
+    <![endif]-->
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/components-bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bower_components/requirejs/require.js" data-main="js/main.js"></script>
+  </body>
 </html>

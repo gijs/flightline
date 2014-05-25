@@ -1,0 +1,30 @@
+{
+  "name": "tweet-formatter",
+  "description": "Format tweet text with proper html link tag on username, hashtag, and url",
+  "main": "tweet-formatter.js",
+  "keywords": [
+    "tweet",
+    "twitter",
+    "format",
+    "link",
+    "username",
+    "hashtag"
+  ],
+  "ignore": [
+    ".*",
+    "test.js",
+    "component.json",
+    "package.json"
+  ],
+  "homepage": "https://github.com/pveyes/tweet-formatter",
+  "_release": "0d7ac35a0e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "0d7ac35a0efe04e07a21a2997a159dc961971b51"
+  },
+  "_source": "git://github.com/pveyes/tweet-formatter.git",
+  "_target": "*",
+  "_originalSource": "tweet-formatter",
+  "_direct": true
+}

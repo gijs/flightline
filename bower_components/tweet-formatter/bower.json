@@ -1,0 +1,20 @@
+{
+  "name": "tweet-formatter",
+  "version": "0.0.1",
+  "description": "Format tweet text with proper html link tag on username, hashtag, and url",
+  "main": "tweet-formatter.js",
+  "keywords": [
+    "tweet",
+    "twitter",
+    "format",
+    "link",
+    "username",
+    "hashtag"
+  ],
+  "ignore": [
+    ".*",
+    "test.js",
+    "component.json",
+    "package.json"
+  ]
+}
