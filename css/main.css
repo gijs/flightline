@@ -22,12 +22,88 @@ body {
 
 .profile {
     width: 290px;
+    background-color: #fff;
+    border-radius: 6px;
     float: left;
+    position: relative;
+}
+
+.profile-header-img {
+    display: block;
+    background-image: url('https://pbs.twimg.com/profile_banners/82924400/1400312868/600x200');
+    background-size: 100%;
+    height: 95px;
+    border-radius: 4px 4px 0 0;
+    background-position: 0 50%;
+    width: 100%;
+    padding: 0 1px;
+}
+
+.profile-avatar {
+    margin: -30px 0 0 8px;
+    padding: 3px;
+    border-radius: 6px;
+    vertical-align: bottom;
+    display: inline-block;
+    background-color: #fff;
+}
+
+.profile-avatar img {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+}
+
+.profile-info {
+    position: absolute;
+    top: 103px;
+    left: 90px;
+    width: 185px;
+}
+
+.profile-name {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    display: block;
+}
+
+.profile-username {
+    font-size: 12px;
+    padding-right: 5px;
+    color: #66757f;
+}
+
+.tweet-box {
+    margin-top: 24px;
+    border: 1px solid #CCE5FF;
+    background-color: #EAF4FF;
+    padding: 12px;
+    border-radius: 0 0 6px 6px;
+}
+
+.tweet-input {
+    border: 1px solid rgba(51,153,255,0.25);
+    padding: 6px 8px 5px;
+    background: #fff;
+    margin-bottom: 8px;
+}
+
+.tweet-input:focus {
+    border-color: #ADD6FF;
+}
+
+.tweet-toolbar {
+}
+
+.tweet-btn {
+    float: right;
 }
 
 .timeline {
     width: 590px;
     float: left;
+    margin: 0 10px;
 }
 
 .section-header {

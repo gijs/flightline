@@ -15,11 +15,24 @@
     </header>
     <div class="container app-content">
       <div class="profile">
-        <div class="profile-header"></div>
-        <div class="profile-content"></div>
-        <div id="new-tweet">
-            <input id="tweet-input">
-            <button class="submit">Tweet</button>
+        <a class="profile-header-img" href="https://twitter.com/pveyes"></a>
+        <div class="profile-content">
+          <a class="profile-avatar" href="https://twitter.com/pveyes">
+            <img src="https://pbs.twimg.com/profile_images/467571728550342656/M-ytaAwf_bigger.jpeg" />
+          </a>
+          <div class="profile-info">
+            <strong class="profile-name">Fatih Kalifa</strong>
+            <span class="profile-username">@pveyes</span>
+          </div>
+          <div class="tweet-box" id="new-tweet">
+              <div class="tweet-input" id="tweet-input" contenteditable="true">
+                Compose new tweet
+              </div>
+              <div class="tweet-toolbar">
+                <button class="btn btn-primary tweet-btn">Tweet</button>
+              </div>
+              <div class="clearfix"></div>
+          </div>
         </div>
       </div>
       <section class="timeline">
