@@ -44,6 +44,15 @@
         <ul class="tweet-list" id="timeline"></ul>
       </section>
     </div>
+    <script id="tweet-template" type="text/template">
+      <li id="<%= id %>" class="tweet">
+          <img src="#">
+          <div class="tweet-content"><%= raw %></div>
+      </li>
+    </script>
+    <script id="tweet-queue-template" type="text/template">
+      <li id="tweet-queue" class="tweet-queue"><%= queue %></li>
+    </script>
     <!--[if lt IE 9]>
     <script src="./bower_components/es5-shim/es5-shim.js"></script>
     <script src="./bower_components/es5-shim/es5-sham.js"></script>

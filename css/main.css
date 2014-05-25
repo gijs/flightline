@@ -84,6 +84,9 @@ body {
 
 .tweet-input {
     border: 1px solid rgba(51,153,255,0.25);
+    height: 80px;
+    overflow-y: auto;
+    word-wrap: break-word;
     padding: 6px 8px 5px;
     background: #fff;
     margin-bottom: 8px;
@@ -129,7 +132,7 @@ body {
     padding: 0;
 }
 
-.tweet {
+.tweet, .tweet-queue {
     border-bottom: 1px solid #ddd;
     cursor: pointer;
     list-style: none;;
@@ -139,6 +142,16 @@ body {
 
 .tweet:hover {
     background-color: #f5f8fa;
+}
+
+.tweet-queue {
+    background-color: #f5f8fa;
+    text-align: center;
+    color: #3399FF;
+}
+
+.tweet-queue:hover {
+    background-color: #e1e8ed;
 }
 
 .tweet img {
